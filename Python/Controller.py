@@ -86,7 +86,7 @@ class Controller:
         print("Saving data...")
         with open('misura_6.csv','w',newline='') as csvfile:
             filewriter=csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            filewriter.writerow(["r;thetaT;omegaR;error;u;"])
+            filewriter.writerow(["r;theta;omega;error;u;"])
             filewriter.writerow([str(self.refs[0])+";"+str(self.positions[0])+";"+"0"+";"+"0"+";"+"0"])
             for i in range(len(self.positions)):
                 filewriter.writerow([str(self.refs[i])+";"+str(self.positions[i])+";"+ str(self.outputs[i])+";"+str(self.errors[i])+";"+str(self.inputs[i])])
