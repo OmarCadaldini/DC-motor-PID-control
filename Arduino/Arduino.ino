@@ -7,7 +7,7 @@ int current_a;
 int last_a;
 int current_b;
 int last_b;
-volatile int32_t theta=0;
+volatile int32_t alpha=0;
 
 void setup()
 {
@@ -32,9 +32,9 @@ void loop()
   if(digitalRead(EN_pin)==LOW)
   {
     delay(Ts_ms);
-    Serial.println(theta);
+    Serial.println(alpha);
   }
-  else theta=0;
+  else alpha=0;
 }
 
 void ISR_a()
@@ -44,16 +44,16 @@ void ISR_a()
   if (current_a==1)//rising edge
   {
     if (current_b==0)
-      theta++;
+      alpha++;
     else
-      theta--;
+      alpha--;
   }
   else//falling edge
   {
     if (current_b==0)
-      theta--;
+      alpha--;
     else
-      theta++;
+      alpha++;
   }
   last_a=current_a;
   last_b=current_b;
@@ -66,16 +66,16 @@ void ISR_b()
   if(current_b==1)//rising edge
   {
     if(current_a==0)
-      theta--;
+      alpha--;
     else
-      theta++;
+      alpha++;
   }
   else//falling edge
   {
     if(current_a==0)
-      theta++;
+      alpha++;
     else
-      theta--;
+      alpha--;
   }
   last_a=current_a;
   last_b=current_b;
