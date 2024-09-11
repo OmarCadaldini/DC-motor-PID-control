@@ -29,9 +29,9 @@ if __name__=="__main__":
     while k<len(u):
         driver.setVoltage(u[k])
         if ser.in_waiting>0:
-            theta=int(ser.readline().decode('utf-8').rstrip())
+            alpha=int(ser.readline().decode('utf-8').rstrip())
             times.append(time.time_ns())
-            theta=theta*6.28/440
+            theta=alpha*6.28/440#conversion from ticks to radians
             positions.append(theta)
             k+=1  
     print("STOP")
