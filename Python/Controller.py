@@ -48,8 +48,8 @@ class Controller:
                 print("exit task 2")
                 break
             if self.ser.in_waiting>0:
-                theta=int(self.ser.readline().decode('utf-8').rstrip())
-                theta=theta*2*math.pi/440
+                alpha=int(self.ser.readline().decode('utf-8').rstrip())
+                theta=alpha*2*math.pi/440#conversion from ticks to radians
                 self.positions.append(theta)
                 self.refs.append(self.delta_r+self.y_bar)
                 y=(theta-theta_old)/self.Ts
