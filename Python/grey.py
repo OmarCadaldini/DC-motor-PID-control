@@ -39,7 +39,7 @@ if __name__=="__main__":
     GPIO.cleanup()
     with open('grey_result.csv','w',newline='') as csvfile:
         filewriter=csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        filewriter.writerow(["u;theta rad;omega rad/s;"])
+        filewriter.writerow(["u;theta;omega;"])
         filewriter.writerow([str(u[0])+";"+str(positions[0])+";"+"0"])
         for i in range(len(positions)-1):
             filewriter.writerow([str(u[i+1]) + ";" + str(positions[i+1]) + ";" + str((positions[i+1]-positions[i])/(sample_time_ms/1000))])
