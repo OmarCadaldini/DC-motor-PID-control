@@ -18,6 +18,5 @@ d=0;
 
 sys=ss(A,b,c,d)
 G=tf(sys)
-C=tf([2.17 6.6],[1 0])
-H=C*G
+
 sisotool(G)
